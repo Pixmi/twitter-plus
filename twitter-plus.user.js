@@ -4,7 +4,7 @@
 // @name:zh-CN  Twitterᴾˡᵘˢ
 // @name:ja     Twitterᴾˡᵘˢ
 // @namespace   https://greasyfork.org
-// @version     0.3.2
+// @version     0.3.3
 // @description         Enhance Twitter user experience. Load images in original quality, remove tweets that contain specific hashtags or exceed the maximum limit.
 // @description:zh-TW   增強Twitter使用者體驗。讀取原始畫質的圖片，移除包含特定Hashtag或超過最大限制的推文。
 // @description:zh-CN   增强Twitter使用者体验。读取原始画质的图片，移除包含特定Hashtag或超过最大限制的推文。
@@ -17,7 +17,6 @@
 // @license     AGPL-3.0-or-later
 // @grant       GM_setValue
 // @grant       GM_getValue
-// @grant       GM_addStyle
 // @compatible  Chrome
 // @compatible  Firefox
 // ==/UserScript==
