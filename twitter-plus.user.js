@@ -4,12 +4,13 @@
 // @name:zh-CN  Twitterᴾˡᵘˢ
 // @name:ja     Twitterᴾˡᵘˢ
 // @namespace   https://greasyfork.org
-// @version     0.3.3
+// @version     0.3.4
 // @description         Enhance Twitter user experience. Load images in original quality, remove tweets that contain specific hashtags or exceed the maximum limit.
 // @description:zh-TW   增強Twitter使用者體驗。讀取原始畫質的圖片，移除包含特定Hashtag或超過最大限制的推文。
 // @description:zh-CN   增强Twitter使用者体验。读取原始画质的图片，移除包含特定Hashtag或超过最大限制的推文。
 // @description:ja      Twitterのユーザー体験を向上させます。元の品質で画像をロードし、特定のハッシュタグを含むまたは最大限度を超えるツイートを非表示にします。
 // @author      Pixmi
+// @homepage    https://github.com/Pixmi/twitter-plus
 // @icon        https://www.google.com/s2/favicons?sz=64&domain=twitter.com
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
@@ -17,6 +18,9 @@
 // @license     AGPL-3.0-or-later
 // @grant       GM_setValue
 // @grant       GM_getValue
+// @grant       GM_addStyle
+// @grant       GM_registerMenuCommand
+// @require     https://openuserjs.org/src/libs/sizzle/GM_config.js
 // @compatible  Chrome
 // @compatible  Firefox
 // ==/UserScript==
@@ -26,6 +30,12 @@ if (GM_getValue('MAX_HASHTAGS') == undefined) { GM_setValue('MAX_HASHTAGS', 20);
 if (GM_getValue('OUT_HASHTAGS') == undefined) { GM_setValue('OUT_HASHTAGS', '#tag1,#tag2'); }
 // Change OUT_HASHTAGS type to string
 if (typeof GM_getValue('OUT_HASHTAGS') == 'object') { GM_setValue('OUT_HASHTAGS', GM_getValue('OUT_HASHTAGS').join(',')); }
+// Custom style.
+GM_addStyle(`
+iframe#twitter_plus_setting {
+    max-width: 300px !important;
+    max-height: 300px !important;
+}`);
 
 (function () {
     'use strict';
@@ -98,3 +108,55 @@ if (typeof GM_getValue('OUT_HASHTAGS') == 'object') { GM_setValue('OUT_HASHTAGS'
         }
     }
 })();
+
+GM_registerMenuCommand('Setting', () => config.open());
+
+const config = new GM_config({
+    'id': 'twitter_plus_setting',
+    'css': `
+        #twitter_plus_setting_wrapper {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        #twitter_plus_setting_section_0 {
+            flex: 1;
+        }
+        #twitter_plus_setting_buttons_holder {
+            text-align: center;
+        }
+        .config_var {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem !important;
+        }
+    `,
+    'title': 'Twitterᴾˡᵘˢ Setting',
+    'fields': {
+        'MAX_HASHTAGS': {
+            'label': 'Maximum hashtag',
+            'type': 'number',
+            'title': 'How many hashtags exceed the limit for post visibility?',
+            'min': 0,
+            'max': 100,
+            'default': 20,
+        },
+        'OUT_HASHTAGS': {
+            'label': 'Excluded hashtag',
+            'type': 'textarea',
+            'title': 'Which hashtags should be hidden? (Must include #)',
+            'default': '#tag1,#tag2',
+        }
+    },
+    'events': {
+        'init': () => {
+            if (GM_getValue('MAX_HASHTAGS')) { config.set('MAX_HASHTAGS', GM_getValue('MAX_HASHTAGS')) }
+            if (GM_getValue('OUT_HASHTAGS')) { config.set('OUT_HASHTAGS', GM_getValue('OUT_HASHTAGS')) }
+        },
+        'save': () => {
+            GM_setValue('OUT_HASHTAGS', config.get('OUT_HASHTAGS'));
+            GM_setValue('MAX_HASHTAGS', config.get('MAX_HASHTAGS'));
+            config.close();
+        }
+    }
+});
