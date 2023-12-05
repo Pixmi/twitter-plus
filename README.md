@@ -1,5 +1,3 @@
-### Enhance the Twitter user experience
-
 #### The main features
 * Load images in original quality.
   * copying the image url or saved from the right-click menu both used the original quality.
