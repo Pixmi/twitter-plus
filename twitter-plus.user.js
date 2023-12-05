@@ -4,11 +4,11 @@
 // @name:zh-CN  Twitterᴾˡᵘˢ
 // @name:ja     Twitterᴾˡᵘˢ
 // @namespace   https://greasyfork.org
-// @version     0.3.4
-// @description         Enhance Twitter user experience. Load images in original quality, remove tweets that contain specific hashtags or exceed the maximum limit.
-// @description:zh-TW   增強Twitter使用者體驗。讀取原始畫質的圖片，移除包含特定Hashtag或超過最大限制的推文。
-// @description:zh-CN   增强Twitter使用者体验。读取原始画质的图片，移除包含特定Hashtag或超过最大限制的推文。
-// @description:ja      Twitterのユーザー体験を向上させます。元の品質で画像をロードし、特定のハッシュタグを含むまたは最大限度を超えるツイートを非表示にします。
+// @version     0.3.5
+// @description         Enhance the Twitter user experience by loading images in their original quality and removing ads and spam tweets.
+// @description:zh-TW   增強Twitter使用體驗。讀取原始畫質的圖片，移除廣告與垃圾推文。
+// @description:zh-CN   增强Twitter使用体验。读取原始画质的图片，移除广告与垃圾推文。
+// @description:ja      Twitterの利用体験を向上させます。元の高画質で画像をロードします、広告や迷惑なツイートを削除します。
 // @author      Pixmi
 // @homepage    https://github.com/Pixmi/twitter-plus
 // @icon        https://www.google.com/s2/favicons?sz=64&domain=twitter.com
@@ -76,16 +76,20 @@ iframe#twitter_plus_setting {
                 for (const mutation of mutationsList) {
                     const target = mutation.target;
                     if (!checkElement(target)) continue;
-                    // only article node need to check hashtags
+                    // only the article node needs to be checked for spam or ads.
                     if (target.nodeName == 'ARTICLE') {
-                        const hashtags = Array.from(target.querySelectorAll('a[href^="/hashtag/"]'), tag => tag.textContent);
-                        if (hashtags.length) {
-                            if ((MAX_HASHTAGS > 0 && hashtags.length >= MAX_HASHTAGS) || hashtags.some(tag => OUT_HASHTAGS.find(item => item == tag))) {
-                                // remove spam tweet
-                                target.closest('div[data-testid="cellInnerDiv"] > div').style.display = 'none';
-                                target.remove();
-                                continue;
-                            }
+                        try {
+                            const hashtags = Array.from(target.querySelectorAll('a[href^="/hashtag/"]'), tag => tag.textContent);
+                            // exceeding the numbers of hashtags.
+                            if (MAX_HASHTAGS > 0 && hashtags.length >= MAX_HASHTAGS) throw target;
+                            // containing specified hashtags.
+                            if (hashtags.some(tag => OUT_HASHTAGS.find(item => item == tag))) throw target;
+                            // ads.
+                            if (target.querySelector('svg.r-1q142lx')) throw target;
+                        } catch (e) {
+                            // hidden tweet
+                            if (e) e.closest('div[data-testid="cellInnerDiv"]').style.display = 'none';
+                            continue;
                         }
                     }
                     const images = target.querySelectorAll('img');
@@ -131,20 +135,20 @@ const config = new GM_config({
             margin-bottom: 1rem !important;
         }
     `,
-    'title': 'Twitterᴾˡᵘˢ Setting',
+    'title': 'Spam tweets',
     'fields': {
         'MAX_HASHTAGS': {
-            'label': 'Maximum hashtag',
+            'label': 'How many hashtags to hide?',
             'type': 'number',
-            'title': 'How many hashtags exceed the limit for post visibility?',
+            'title': 'input 0 to disable',
             'min': 0,
             'max': 100,
             'default': 20,
         },
         'OUT_HASHTAGS': {
-            'label': 'Excluded hashtag',
+            'label': 'Which tags must be hidden?',
             'type': 'textarea',
-            'title': 'Which hashtags should be hidden? (Must include #)',
+            'title': 'Must include # and separated by commas.',
             'default': '#tag1,#tag2',
         }
     },
