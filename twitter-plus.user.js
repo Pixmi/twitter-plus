@@ -4,7 +4,7 @@
 // @name:zh-CN  Twitterᴾˡᵘˢ
 // @name:ja     Twitterᴾˡᵘˢ
 // @namespace   https://greasyfork.org
-// @version     0.3.5
+// @version     0.3.6
 // @description         Enhance the Twitter user experience by loading images in their original quality and removing ads and spam tweets.
 // @description:zh-TW   增強Twitter使用體驗。讀取原始畫質的圖片，移除廣告與垃圾推文。
 // @description:zh-CN   增强Twitter使用体验。读取原始画质的图片，移除广告与垃圾推文。
@@ -135,10 +135,10 @@ const config = new GM_config({
             margin-bottom: 1rem !important;
         }
     `,
-    'title': 'Spam tweets',
+    'title': 'Remove Spam',
     'fields': {
         'MAX_HASHTAGS': {
-            'label': 'How many hashtags to hide?',
+            'label': 'When exceeding how many hashtags?',
             'type': 'number',
             'title': 'input 0 to disable',
             'min': 0,
@@ -146,7 +146,7 @@ const config = new GM_config({
             'default': 20,
         },
         'OUT_HASHTAGS': {
-            'label': 'Which tags must be hidden?',
+            'label': 'When containing which hashtags?',
             'type': 'textarea',
             'title': 'Must include # and separated by commas.',
             'default': '#tag1,#tag2',
