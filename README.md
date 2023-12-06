@@ -6,12 +6,12 @@
 * Remove tweets that contain specific hashtags or exceed the maximum limit. (default allow 20 hashtag)
 * Remove official ads tweets.
 
-#### Criteria for spam tweets
-![image](https://i.imgur.com/CcX8VRu.png)
+#### Setting to remove spam
+![image](https://i.imgur.com/hYsNBm0.png)
 
 #### Remove spam tweets
 ![image](https://i.imgur.com/O4HucPC.jpg)
 
-Recommended.
+#### Recommended
 * Firefox 115.0+ & Tampermonkey 4.15+
 * Chrome 114.0+ & Violentmonkey 2.16+ or Tampermonkey 4.15+

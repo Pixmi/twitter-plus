@@ -6,12 +6,12 @@
 * 特定のハッシュタグを含むか、最大制限を超えるツイートを削除します（デフォルトは20ハッシュタグまで許可）。
 * 公式広告のツイートを削除します。
 
-#### スパムツイートの条件
-![image](https://i.imgur.com/CcX8VRu.png)
+#### スパム削除の条件
+![image](https://i.imgur.com/hYsNBm0.png)
 
-#### スパムツイートの削除
+#### スパムの削除
 ![image](https://i.imgur.com/O4HucPC.jpg)
 
-推奨環境
+#### 推奨環境
 * Firefox 115.0+ & Tampermonkey 4.15+
 * Chrome 114.0+ & Violentmonkey 2.16+ または Tampermonkey 4.15+
