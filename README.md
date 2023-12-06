@@ -4,7 +4,7 @@
 * ~~Allow download video from tweets. (must be in the tweets of the video)~~
   * Due to the instability of the video download service, this feature has been removed.
 * Remove tweets that contain specific hashtags or exceed the maximum limit. (default allow 20 hashtag)
-* Remove official ads tweets.
+* Remove official ads tweets. (Under testing)
 
 #### Setting to remove spam
 ![image](https://i.imgur.com/hYsNBm0.png)
