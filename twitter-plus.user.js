@@ -19,7 +19,6 @@
 // @match       https://mobile.twitter.com/*
 // @match       https://pbs.twimg.com/media/*
 // @license     MPL-2.0
-// @license     CC BY-NC 4.0
 // @grant       GM_setValue
 // @grant       GM_getValue
 // @grant       GM_addStyle
