@@ -15,6 +15,9 @@
 #### 移除垃圾推文
 ![image](https://i.imgur.com/O4HucPC.jpg)
 
-### 推薦環境
+#### 安裝
+你可以在 [Greasyfork](https://greasyfork.org/en/scripts/387969-twitter%E1%B4%BE%CB%A1%E1%B5%98%CB%A2) 或 [Github](https://github.com/Pixmi/twitter-plus) 安裝
+
+#### 推薦環境
 * Firefox 115.0+ & Tampermonkey 4.15+
 * Chrome 114.0+ & Violentmonkey 2.16+ or Tampermonkey 4.15+

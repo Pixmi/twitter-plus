@@ -15,6 +15,9 @@ Twitterの利用体験を向上させます。元の高画質で画像をロー�
 #### スパムの削除
 ![image](https://i.imgur.com/O4HucPC.jpg)
 
+#### インストール
+[Greasyfork](https://greasyfork.org/en/scripts/387969-twitter%E1%B4%BE%CB%A1%E1%B5%98%CB%A2) または [Github](https://github.com/Pixmi/twitter-plus) からスクリプトをインストールできます。
+
 #### 推奨環境
 * Firefox 115.0+ & Tampermonkey 4.15+
 * Chrome 114.0+ & Violentmonkey 2.16+ または Tampermonkey 4.15+
