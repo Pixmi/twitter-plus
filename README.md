@@ -1,5 +1,5 @@
 ## Twitterᴾˡᵘˢ
-Enhance the Twitter user experience by loading images in their original quality and removing ads and spam tweets.
+Enhance the X(Twitter) user experience by loading images in their original quality and removing ads and spam tweets.
 
 #### The main features
 * Load images in original quality.
@@ -7,7 +7,7 @@ Enhance the Twitter user experience by loading images in their original quality 
 * ~~Allow download video from tweets. (must be in the tweets of the video)~~
   * Due to the instability of the video download service, this feature has been removed.
 * Remove tweets that contain specific hashtags or exceed the maximum limit. (default allow 20 hashtag)
-* Remove official ads tweets. (Under testing)
+* Remove official ads tweets.
 
 #### Setting to remove spam
 ![image](https://i.imgur.com/hYsNBm0.png)
