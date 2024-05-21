@@ -1,5 +1,5 @@
-## Twitterᴾˡᵘˢ
-Twitterの利用体験を向上させます。元の高画質で画像をロードします、広告や迷惑なツイートを削除します。
+## Xᴾˡᵘˢ
+Xの利用体験を向上させます。元の高画質で画像をロードします、広告や迷惑なツイートを削除します。
 
 #### 主な機能
 * 元の高画質で画像をロードします。
@@ -19,5 +19,5 @@ Twitterの利用体験を向上させます。元の高画質で画像をロー�
 [Greasyfork](https://greasyfork.org/en/scripts/387969-twitter%E1%B4%BE%CB%A1%E1%B5%98%CB%A2) または [Github](https://github.com/Pixmi/twitter-plus) からスクリプトをインストールできます。
 
 #### 推奨環境
-* Firefox 115.0+ & Tampermonkey 4.15+
-* Chrome 114.0+ & Violentmonkey 2.16+ または Tampermonkey 4.15+
+* Firefox 120.0+ & Tampermonkey 4.15+
+* Chrome 118.0+ & Violentmonkey 2.16+ または Tampermonkey 4.15+

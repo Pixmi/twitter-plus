@@ -1,5 +1,5 @@
-## Twitterᴾˡᵘˢ
-增强Twitter使用体验。读取原始画质的图片，移除广告与垃圾推文。
+## Xᴾˡᵘˢ
+增强 X 使用体验。读取原始画质的图片，移除广告与垃圾推文。
 
 #### 主要功能
 * 读取原始画质的图片
@@ -19,5 +19,5 @@
 你可以在 [Greasyfork](https://greasyfork.org/en/scripts/387969-twitter%E1%B4%BE%CB%A1%E1%B5%98%CB%A2) 或 [Github](https://github.com/Pixmi/twitter-plus) 安装
 
 #### 推荐环境
-* Firefox 115.0+ & Tampermonkey 4.15+
-* Chrome 114.0+ & Violentmonkey 2.16+ or Tampermonkey 4.15+
+* Firefox 120.0+ & Tampermonkey 4.15+
+* Chrome 118.0+ & Violentmonkey 2.16+ or Tampermonkey 4.15+
