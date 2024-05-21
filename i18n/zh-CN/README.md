@@ -18,6 +18,9 @@
 #### 安装
 你可以在 [Greasyfork](https://greasyfork.org/en/scripts/387969-twitter%E1%B4%BE%CB%A1%E1%B5%98%CB%A2) 或 [Github](https://github.com/Pixmi/twitter-plus) 安装
 
+#### 关于 X.com
+我目前没有打算更换插件名称，也许之后会改，但不会是Xᴾˡᵘˢ。
+
 #### 推荐环境
-* Firefox 115.0+ & Tampermonkey 4.15+
-* Chrome 114.0+ & Violentmonkey 2.16+ or Tampermonkey 4.15+
+* Firefox 120.0+ & Tampermonkey 4.15+
+* Chrome 118.0+ & Violentmonkey 2.16+ or Tampermonkey 4.15+

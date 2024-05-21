@@ -4,17 +4,18 @@
 // @name:zh-CN  Twitterᴾˡᵘˢ
 // @name:ja     Twitterᴾˡᵘˢ
 // @namespace   https://greasyfork.org
-// @version     0.3.7
-// @description         Enhance the Twitter user experience by loading images in their original quality and removing ads and spam tweets.
-// @description:zh-TW   增強Twitter使用體驗。讀取原始畫質的圖片，移除廣告與垃圾推文。
-// @description:zh-CN   增强Twitter使用体验。读取原始画质的图片，移除广告与垃圾推文。
-// @description:ja      Twitterの利用体験を向上させます。元の高画質で画像をロードします、広告や迷惑なツイートを削除します。
+// @version     0.3.8
+// @description         Enhance the X user experience by loading images in their original quality and removing ads and spam tweets.
+// @description:zh-TW   增強 X 使用體驗。讀取原始畫質的圖片，移除廣告與垃圾推文。
+// @description:zh-CN   增强 X 使用体验。读取原始画质的图片，移除广告与垃圾推文。
+// @description:ja      Xの利用体験を向上させます。元の高画質で画像をロードします、広告や迷惑なツイートを削除します。
 // @author      Pixmi
 // @homepage    https://github.com/Pixmi/twitter-plus
 // @updateURL   https://github.com/Pixmi/twitter-plus/raw/main/twitter-plus.meta.js
 // @downloadURL https://github.com/Pixmi/twitter-plus/raw/main/twitter-plus.user.js
 // @supportURL  https://github.com/Pixmi/twitter-plus/issues
 // @icon        https://www.google.com/s2/favicons?sz=64&domain=twitter.com
+// @match       https://x.com/*
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
 // @match       https://pbs.twimg.com/media/*
@@ -62,7 +63,7 @@ iframe#twitter_plus_setting {
         if (originUrl) window.location.replace(originUrl);
     }
     // if browsing tweets, activate the observer.
-    if (URL.includes('twitter.com')) {
+    if (URL.includes('twitter.com') || URL.includes('x.com')) {
         const rootmatch = document.evaluate('//div[@id="react-root"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
         const rootnode = rootmatch.singleNodeValue;
         const MAX_HASHTAGS = GM_getValue('MAX_HASHTAGS');
@@ -91,7 +92,7 @@ iframe#twitter_plus_setting {
                             if (target.querySelector('svg.r-1q142lx')) throw target;
                         } catch (e) {
                             // hidden tweet
-                            if (e) e.closest('div[data-testid="cellInnerDiv"]').style.display = 'none';
+                            if (e instanceof HTMLElement) e.closest('div[data-testid="cellInnerDiv"]').style.display = 'none';
                             continue;
                         }
                     }

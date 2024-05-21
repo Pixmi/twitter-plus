@@ -18,6 +18,9 @@ Enhance the Twitter user experience by loading images in their original quality 
 #### Install
 You can install script from [Greasyfork](https://greasyfork.org/en/scripts/387969-twitter%E1%B4%BE%CB%A1%E1%B5%98%CB%A2) or [Github](https://github.com/Pixmi/twitter-plus)
 
+#### About X.com
+I currently have no plans to change the plugin name. Perhaps one day I will, but it won't be Xᴾˡᵘˢ.
+
 #### Recommended
-* Firefox 115.0+ & Tampermonkey 4.15+
-* Chrome 114.0+ & Violentmonkey 2.16+ or Tampermonkey 4.15+
+* Firefox 120.0+ & Tampermonkey 4.15+
+* Chrome 118.0+ & Violentmonkey 2.16+ or Tampermonkey 4.15+
