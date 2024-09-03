@@ -4,11 +4,11 @@
 // @name:zh-CN  Twitterᴾˡᵘˢ
 // @name:ja     Twitterᴾˡᵘˢ
 // @namespace   https://greasyfork.org
-// @version     0.4.0
-// @description         Enhance the X(Twitter) user experience by loading images in their original quality and removing ads and spam tweets.
-// @description:zh-TW   增強 X(Twitter) 使用體驗。讀取原始畫質的圖片，移除廣告與垃圾推文。
-// @description:zh-CN   增强 X(Twitter) 使用体验。读取原始画质的图片，移除广告与垃圾推文。
-// @description:ja      X(Twitter)の利用体験を向上させます。元の高画質で画像をロードします、広告や迷惑なツイートを削除します。
+// @version     0.4.3
+// @description         Enhance the X(Twitter) user experience. View original quality images and customize the removal of spam tweets.
+// @description:zh-TW   增強 X(Twitter) 使用體驗。讀取原始畫質圖片、自定義移除垃圾推文。
+// @description:zh-CN   增强 X(Twitter) 使用体验。读取原始画质图片、自定义移除垃圾推文。
+// @description:ja      X（Twitter）のユーザー体験を向上させる。オリジナル品質の画像を表示し、スパムツイートの削除をカスタマイズする。
 // @author      Pixmi
 // @homepage    https://github.com/Pixmi/twitter-plus
 // @updateURL   https://github.com/Pixmi/twitter-plus/raw/main/twitter-plus.meta.js
@@ -88,8 +88,6 @@ iframe#twitter_plus_setting {
                             if (MAX_HASHTAGS > 0 && hashtags.length >= MAX_HASHTAGS) throw target;
                             // containing specified hashtags.
                             if (hashtags.some(tag => OUT_HASHTAGS.find(item => item == tag))) throw target;
-                            // ads.
-                            if (target.querySelector('svg.r-1q142lx')) throw target;
                         } catch (e) {
                             // hidden tweet
                             if (e instanceof HTMLElement) e.closest('div[data-testid="cellInnerDiv"]').style.display = 'none';

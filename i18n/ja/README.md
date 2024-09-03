@@ -1,23 +1,27 @@
 ## Twitterᴾˡᵘˢ
-X(Twitter)の利用体験を向上させます。元の高画質で画像をロードします、広告や迷惑なツイートを削除します。
 
-#### 主な機能
-* 元の高画質で画像をロードします。
-  * 画像を右クリックメニューからコピーするか、保存する場合も高画質を使用します。
-* ~~ツイートから動画をダウンロードできます。（必ず動画のツイートに入っている必要があります）~~
-  * 動画のダウンロードサービスが不安定なため、この機能は削除されました。
-* 特定のハッシュタグを含むか、最大制限を超えるツイートを削除します（デフォルトは20ハッシュタグまで許可）。
-* 公式広告のツイートを削除します。
+X（Twitter）のユーザー体験を向上させる。オリジナル品質の画像を表示し、スパムツイートの削除をカスタマイズする。
 
-#### スパム削除の条件
-![image](https://i.imgur.com/hYsNBm0.png)
-
-#### スパムの削除
 ![image](https://i.imgur.com/O4HucPC.jpg)
 
+#### 主な機能
+
+* オリジナル品質の画像にアクセスできます。画像のURLをコピーするか、右クリックメニューから直接保存することで、オリジナル品質を取得できます。
+
+* 特定のハッシュタグを含むツイートや、最大ハッシュタグ制限を超えるツイート（デフォルトの最大は20）の削除ができます。
+
+  ![image](https://i.imgur.com/hYsNBm0.png)
+
+#### 公式広告
+
+公式の頻繁な更新により、誤判を避けるために広告削除機能が廃止されました。
+
 #### インストール
-[Greasyfork](https://greasyfork.org/en/scripts/387969-twitter%E1%B4%BE%CB%A1%E1%B5%98%CB%A2) または [Github](https://github.com/Pixmi/twitter-plus) からスクリプトをインストールできます。
+
+[Greasyfork](https://greasyfork.org/ja/scripts/387969) または [Github](https://github.com/Pixmi/twitter-plus) からスクリプトをインストールできます。
 
 #### 推奨環境
-* Firefox 120.0+ & Tampermonkey 4.15+
-* Chrome 118.0+ & Violentmonkey 2.16+ または Tampermonkey 4.15+
+
+* Firefox 120+ & Tampermonkey 4.15+
+
+* Chrome 120+ & Violentmonkey 2.16+ または Tampermonkey 4.15+
