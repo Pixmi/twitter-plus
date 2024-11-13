@@ -22,6 +22,10 @@ X（Twitter）のユーザー体験を向上させる。オリジナル品質の
 
 #### 推奨環境
 
-* Firefox 120+ & Tampermonkey 4.15+
+* Firefox 130+ & Tampermonkey 5.3.2+
 
-* Chrome 120+ & Violentmonkey 2.16+ または Tampermonkey 4.15+
+* Chrome 130+ & Violentmonkey 2.27+ or Tampermonkey 5.3.2+
+
+> Chromeで動作しない場合は、**開発者モード**が有効になっていることを確認してください。
+>
+> [ChromeベースのブラウザでTampermonkey拡張機能を使用するユーザーにとって、開発者モードを有効にすることは、Manifest V3のアップデートにより導入された必須条件です。](https://www.tampermonkey.net/faq.php?locale=ja#Q209)

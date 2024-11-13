@@ -21,6 +21,10 @@ You can install it from [Greasyfork](https://greasyfork.org/en/scripts/387969) o
 
 #### Recommended
 
-* Firefox 120+ & Tampermonkey 4.15+
+* Firefox 130+ & Tampermonkey 5.3.2+
 
-* Chrome 120+ & Violentmonkey 2.16+ or Tampermonkey 4.15+
+* Chrome 130+ & Violentmonkey 2.27+ or Tampermonkey 5.3.2+
+
+> if not working on chrome, please sure the **developer mode** is enabled.
+>
+> [For users of the Tampermonkey extension in a Chrome-based browser, enabling Developer Mode is a requirement introduced with Manifest V3 updates.](https://www.tampermonkey.net/faq.php?locale=en#Q209)
