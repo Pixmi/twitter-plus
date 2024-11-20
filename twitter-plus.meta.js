@@ -19,7 +19,7 @@
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
 // @match       https://pbs.twimg.com/media/*
-// @require     https://raw.githubusercontent.com/sizzlemctwizzle/GM_config/refs/heads/master/gm_config.js
+// @require     https://update.greasyfork.org/scripts/28536/184529/GM_config.js
 // @grant       GM_setValue
 // @grant       GM_getValue
 // @grant       GM_addStyle
