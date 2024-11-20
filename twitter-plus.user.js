@@ -4,7 +4,7 @@
 // @name:zh-CN  Twitterᴾˡᵘˢ
 // @name:ja     Twitterᴾˡᵘˢ
 // @namespace   https://greasyfork.org
-// @version     0.4.3
+// @version     0.4.6
 // @description         Enhance the X(Twitter) user experience. View original quality images and customize the removal of spam tweets.
 // @description:zh-TW   增強 X(Twitter) 使用體驗。讀取原始畫質圖片、自定義移除垃圾推文。
 // @description:zh-CN   增强 X(Twitter) 使用体验。读取原始画质图片、自定义移除垃圾推文。
@@ -19,22 +19,17 @@
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
 // @match       https://pbs.twimg.com/media/*
-// @license     MPL-2.0
+// @require     https://raw.githubusercontent.com/sizzlemctwizzle/GM_config/refs/heads/master/gm_config.js
 // @grant       GM_setValue
 // @grant       GM_getValue
 // @grant       GM_addStyle
 // @grant       GM_registerMenuCommand
-// @require     https://openuserjs.org/src/libs/sizzle/GM_config.js
+// @license     MPL-2.0
+// @noframes
 // @compatible  Chrome
 // @compatible  Firefox
 // ==/UserScript==
-// Hide the post if the hashtag exceeds the set number. (If set to 0, it will not be enabled)
-if (GM_getValue('MAX_HASHTAGS') == undefined) { GM_setValue('MAX_HASHTAGS', 20); }
-// Hide the post if it contains the following hashtag. (Please include "#" and separate using commas)
-if (GM_getValue('OUT_HASHTAGS') == undefined) { GM_setValue('OUT_HASHTAGS', '#tag1,#tag2'); }
-// Change OUT_HASHTAGS type to string
-if (typeof GM_getValue('OUT_HASHTAGS') == 'object') { GM_setValue('OUT_HASHTAGS', GM_getValue('OUT_HASHTAGS').join(',')); }
-// Custom style.
+
 GM_addStyle(`
 iframe#twitter_plus_setting {
     max-width: 300px !important;
@@ -66,52 +61,45 @@ iframe#twitter_plus_setting {
     if (URL.includes('twitter.com') || URL.includes('x.com')) {
         const rootmatch = document.evaluate('//div[@id="react-root"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
         const rootnode = rootmatch.singleNodeValue;
-        const MAX_HASHTAGS = GM_getValue('MAX_HASHTAGS');
-        const OUT_HASHTAGS = GM_getValue('OUT_HASHTAGS').split(',');
+        if (!rootnode) return false;
+        const MAX_HASHTAGS = GM_getValue('MAX_HASHTAGS', 20);
+        const OUT_HASHTAGS = GM_getValue('OUT_HASHTAGS', '#tag1,#tag2').split(',');
         const checkElement = (ele) => {
             return [
                 ele.dataset.testid == 'tweet',
                 ele.dataset.testid == 'tweetPhoto',
                 ele.className == 'css-175oi2r r-1pi2tsx r-u8s1d r-13qz1uu',
             ].some(item => item);
-        }
-        if (rootnode) {
-            const callback = (mutationsList, observer) => {
-                for (const mutation of mutationsList) {
-                    const target = mutation.target;
-                    if (!checkElement(target)) continue;
-                    // only the article node needs to be checked for spam or ads.
-                    if (target.nodeName == 'ARTICLE') {
-                        try {
-                            const hashtags = Array.from(target.querySelectorAll('a[href^="/hashtag/"]'), tag => tag.textContent);
-                            // exceeding the numbers of hashtags.
-                            if (MAX_HASHTAGS > 0 && hashtags.length >= MAX_HASHTAGS) throw target;
-                            // containing specified hashtags.
-                            if (hashtags.some(tag => OUT_HASHTAGS.find(item => item == tag))) throw target;
-                        } catch (e) {
-                            // hidden tweet
-                            if (e instanceof HTMLElement) e.closest('div[data-testid="cellInnerDiv"]').style.display = 'none';
-                            continue;
-                        }
-                    }
-                    const images = target.querySelectorAll('img');
-                    if (!images.length) continue;
-                    // tweets image
-                    for (const image of images) {
-                        let originUrl = getOriginUrl(image.src);
-                        if (originUrl) image.src = originUrl;
+        };
+        const callback = (mutationsList, observer) => {
+            for (const mutation of mutationsList) {
+                const target = mutation.target;
+                if (!checkElement(target)) continue;
+                if (target.nodeName == 'ARTICLE') {
+                    try {
+                        const hashtags = Array.from(target.querySelectorAll('a[href^="/hashtag/"]'), tag => tag.textContent);
+                        // exceeding the numbers of hashtags.
+                        if (hashtags.length >= MAX_HASHTAGS) throw target;
+                        // containing specified hashtags.
+                        if (hashtags.some(tag => OUT_HASHTAGS.find(item => item == tag))) throw target;
+                    } catch (e) {
+                        if (e instanceof HTMLElement) e.closest('div[data-testid="cellInnerDiv"]').style.display = 'none';
                         continue;
                     }
                 }
+                const images = target.querySelectorAll('img');
+                if (!images.length) continue;
+                // tweets image
+                for (const image of images) {
+                    let originUrl = getOriginUrl(image.src);
+                    if (originUrl) image.src = originUrl;
+                    continue;
+                }
             }
-            const observer = new MutationObserver(callback);
-            // start observe
-            observer.observe(document.body, {
-                attributes: true,
-                childList: true,
-                subtree: true
-            });
-        }
+        };
+        const observer = new MutationObserver(callback);
+        // start observe
+        observer.observe(document.body, { attributes: true, childList: true, subtree: true });
     }
 })();
 
@@ -156,8 +144,8 @@ const config = new GM_config({
     },
     'events': {
         'init': () => {
-            if (GM_getValue('MAX_HASHTAGS')) { config.set('MAX_HASHTAGS', GM_getValue('MAX_HASHTAGS')) }
-            if (GM_getValue('OUT_HASHTAGS')) { config.set('OUT_HASHTAGS', GM_getValue('OUT_HASHTAGS')) }
+            config.set('MAX_HASHTAGS', GM_getValue('MAX_HASHTAGS', 20));
+            config.set('OUT_HASHTAGS', GM_getValue('OUT_HASHTAGS', '#tag1,#tag2'));
         },
         'save': () => {
             GM_setValue('OUT_HASHTAGS', config.get('OUT_HASHTAGS'));

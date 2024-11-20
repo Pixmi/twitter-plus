@@ -4,7 +4,7 @@
 // @name:zh-CN  Twitterᴾˡᵘˢ
 // @name:ja     Twitterᴾˡᵘˢ
 // @namespace   https://greasyfork.org
-// @version     0.4.3
+// @version     0.4.6
 // @description         Enhance the X(Twitter) user experience. View original quality images and customize the removal of spam tweets.
 // @description:zh-TW   增強 X(Twitter) 使用體驗。讀取原始畫質圖片、自定義移除垃圾推文。
 // @description:zh-CN   增强 X(Twitter) 使用体验。读取原始画质图片、自定义移除垃圾推文。
@@ -19,12 +19,13 @@
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
 // @match       https://pbs.twimg.com/media/*
-// @license     MPL-2.0
+// @require     https://raw.githubusercontent.com/sizzlemctwizzle/GM_config/refs/heads/master/gm_config.js
 // @grant       GM_setValue
 // @grant       GM_getValue
 // @grant       GM_addStyle
 // @grant       GM_registerMenuCommand
-// @require     https://openuserjs.org/src/libs/sizzle/GM_config.js
+// @license     MPL-2.0
+// @noframes
 // @compatible  Chrome
 // @compatible  Firefox
 // ==/UserScript==
