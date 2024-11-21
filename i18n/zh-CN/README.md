@@ -3,7 +3,7 @@
 
 ![image](https://i.imgur.com/O4HucPC.jpg)
 
-#### 主要功能
+### 主要功能
 
 * 读取原始画质的图片，从右键选单复制图片网址或储存都能取得原始画质。
 
@@ -11,19 +11,19 @@
 
   ![image](https://i.imgur.com/hYsNBm0.png)
 
-#### 关于广告推文
+### 关于广告推文
 
 由于官方频繁的更新，为了避免误判已经取消移除广告的功能。
 
-#### 安装
+### 安装
 
 你可以在 [Greasyfork](https://greasyfork.org/en/scripts/387969) 或 [Github](https://github.com/Pixmi/twitter-plus) 安装。
 
-#### 推荐环境
+### 推荐环境
 
-* Firefox 130+ & Tampermonkey 5.3.2+
+* Firefox 130+, Chrome 130+
 
-* Chrome 130+ & Violentmonkey 2.27+ or Tampermonkey 5.3.2+
+* Tampermonkey 5.3.2+
 
 > 假如在 Chrome 上没有正常运作，请确保启用了开发者模式。
 >

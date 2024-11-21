@@ -3,7 +3,7 @@ Enhance the X(Twitter) user experience. View original quality images and customi
 
 ![image](https://i.imgur.com/O4HucPC.jpg)
 
-#### Main features
+### Main features
 
 * Access images in their original quality; you can copy the image URL or save it directly from the right-click menu to obtain the original quality.
 
@@ -11,19 +11,19 @@ Enhance the X(Twitter) user experience. View original quality images and customi
 
   ![image](https://i.imgur.com/hYsNBm0.png)
 
-#### About official ads tweets
+### About official ads tweets
 
 Due to frequent updates from the officials, the feature for removing ads has been canceled to avoid misjudgment.
 
-#### Install
+### Install
 
-You can install it from [Greasyfork](https://greasyfork.org/en/scripts/387969) or [Github](https://github.com/Pixmi/twitter-plus).
+You can install this script from [Greasyfork](https://greasyfork.org/en/scripts/387969) or [Github](https://github.com/Pixmi/twitter-plus).
 
-#### Recommended
+### Recommended
 
-* Firefox 130+ & Tampermonkey 5.3.2+
+* Firefox 130+, Chrome 130+
 
-* Chrome 130+ & Violentmonkey 2.27+ or Tampermonkey 5.3.2+
+* Tampermonkey 5.3.2+
 
 > if not working on chrome, please sure the **developer mode** is enabled.
 >
