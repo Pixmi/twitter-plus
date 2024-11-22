@@ -23,7 +23,7 @@
 
 * Firefox 130+, Chrome 130+
 
-* Tampermonkey 5.3.2+
+* Tampermonkey 5.3.2+, Violentmonkey 2.27.0+
 
 > 假如在 Chrome 上没有正常运作，请确保启用了开发者模式。
 >

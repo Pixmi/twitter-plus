@@ -23,7 +23,7 @@ You can install this script from [Greasyfork](https://greasyfork.org/en/scripts/
 
 * Firefox 130+, Chrome 130+
 
-* Tampermonkey 5.3.2+
+* Tampermonkey 5.3.2+, Violentmonkey 2.27.0+
 
 > if not working on chrome, please sure the **developer mode** is enabled.
 >

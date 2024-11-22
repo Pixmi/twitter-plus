@@ -24,7 +24,7 @@ X（Twitter）のユーザー体験を向上させる。オリジナル品質の
 
 * Firefox 130+, Chrome 130+
 
-* Tampermonkey 5.3.2+
+* Tampermonkey 5.3.2+, Violentmonkey 2.27.0+
 
 > Chromeで動作しない場合は、**開発者モード**が有効になっていることを確認してください。
 >
